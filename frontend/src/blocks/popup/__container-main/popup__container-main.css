@@ -1,0 +1,11 @@
+.popup__container-main {
+  border: none;
+  max-width: 358px;
+  margin: auto;
+}
+
+@media screen and (max-width: 650px) {
+  .popup__container-main {
+    width: 238px;
+  }
+}

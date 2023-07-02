@@ -1,0 +1,13 @@
+.element__delete {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: none;
+  background-image: url(../../../images/Trash.png);
+  background-color: transparent;
+  position: absolute;
+  bottom: 322px;
+  right: 20px;
+  width: 18px;
+  height: 19px;
+}

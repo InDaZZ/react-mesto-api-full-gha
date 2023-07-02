@@ -1,0 +1,15 @@
+.registr__item {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: black;
+  border: none;
+  border-bottom: 1px solid #CCCCCC;
+  padding-bottom: 13px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #CCCCCC;
+  outline: none;
+}

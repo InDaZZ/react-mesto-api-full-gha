@@ -1,0 +1,6 @@
+.element__like_active {
+  transition: 0.5s;
+  background: url(../../../../images/like_active.svg)  center no-repeat;
+  background-size: contain;
+}
+

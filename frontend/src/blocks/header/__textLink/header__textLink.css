@@ -1,0 +1,12 @@
+.header__textLink {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: auto;
+  display: block;
+  text-decoration: none;
+}

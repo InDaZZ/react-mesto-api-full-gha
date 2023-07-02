@@ -1,0 +1,17 @@
+.body {
+  background-color: #000000;
+  max-width: 1280px;
+  margin: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .body {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .body {
+    max-width: 320px;
+  }
+}

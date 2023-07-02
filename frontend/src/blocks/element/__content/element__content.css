@@ -1,0 +1,7 @@
+.element__content {
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 0 0 10px 10px;
+  justify-content: space-between;
+  position: relative;
+}

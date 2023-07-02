@@ -1,0 +1,21 @@
+.footer__copywriting {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+}
+
+@media screen and (max-width: 950px) {
+  .footer__copywriting {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .footer__copywriting {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
