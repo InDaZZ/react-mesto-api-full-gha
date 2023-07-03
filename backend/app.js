@@ -27,12 +27,10 @@ app.use(cookieParser());
 app.use(requestLogger);
 
 app.use(cors({
-  origin: ['http://localhost:3000',
-    'http://localhost:3000',
-    'http://localhost:3002',
-    'https://Mesto.Evgeny.Dekhtyarev.nomoreparties.sbs',
+  origin: [
+    'https://mesto.evgeny.dekhtyarev.nomoreparties.sbs',
     'https://api.Mesto.Evgeny.D.nomoreparties.sbs',
-    'http://Mesto.Evgeny.Dekhtyarev.nomoreparties.sbs',
+    'http://mesto.evgeny.dekhtyarev.nomoreparties.sbs',
     'http://api.Mesto.Evgeny.D.nomoreparties.sbs'],
   credentials: true,
 }));
