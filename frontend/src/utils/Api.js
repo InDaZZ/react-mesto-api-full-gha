@@ -3,7 +3,7 @@ export default class Api {
     this.url = url;
     this.headers = headers;
   }
-   
+
   _handleResponse(res) {
     if (res.ok) {
       return res.json();
@@ -14,6 +14,7 @@ export default class Api {
   postTask({ data }) {
     return fetch(this.url + '/cards',
       {
+        credentials: "include",
         method: 'POST',
         headers: this.headers,
         body: JSON.stringify(data)
@@ -24,6 +25,7 @@ export default class Api {
 
   getUserInfo() {
     return fetch(this.url + '/users/me', {
+      credentials: "include",
       headers: this.headers
     })
       .then(this._handleResponse)
@@ -32,6 +34,7 @@ export default class Api {
 
   getTaskCards() {
     return fetch(this.url + '/cards', {
+      credentials: "include",
       headers: this.headers
     })
 
@@ -41,6 +44,7 @@ export default class Api {
   setUserInfo({ data }) {
     return fetch(this.url + '/users/me',
       {
+        credentials: "include",
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify(data)
@@ -52,6 +56,7 @@ export default class Api {
   deleteTask(id) {
     return fetch(this.url + '/cards/' + id,
       {
+        credentials: "include",
         method: 'DELETE',
         headers: this.headers,
       }
@@ -61,6 +66,7 @@ export default class Api {
 
   pushLike(_id) {
     return fetch(this.url + '/cards/' + _id + '/likes', {
+      credentials: "include",
       method: 'PUT',
       headers: this.headers,
 
@@ -70,6 +76,7 @@ export default class Api {
 
   deleteLike(_id) {
     return fetch(this.url + '/cards/' + _id + '/likes', {
+      credentials: "include",
       method: 'DELETE',
       headers: this.headers,
 
@@ -79,6 +86,7 @@ export default class Api {
   pathTaskFromAvatar(avatar) {
     return fetch(this.url + '/users/me/avatar',
       {
+        credentials: "include",
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify({ avatar })
@@ -90,22 +98,24 @@ export default class Api {
   changeLikeCardStatus(id, isLiked) {
     if (isLiked) {
       return fetch(this.url + '/cards/' + id + '/likes', {
-  
+
+        credentials: "include",
         method: 'PUT',
         headers: this.headers,
-  
+
       })
         .then((res) => this._handleResponse(res))
     }
     else {
       return fetch(this.url + '/cards/' + id + '/likes', {
-  
+        
+        credentials: "include",
         method: 'DELETE',
         headers: this.headers,
-  
+
       })
         .then((res) => this._handleResponse(res))
-  }
+    }
   }
 
 }
@@ -116,9 +126,8 @@ export default class Api {
 export const api = new Api({
   url: 'https://api.Mesto.Evgeny.D.nomoreparties.sbs',
   headers: {
-    authorization: 'a5cc8f48-b1d5-4939-89bd-28066ec899ee',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    "Authorization": `Bearer ${localStorage.getItem('jwt')}`
   }
 });
 
-  

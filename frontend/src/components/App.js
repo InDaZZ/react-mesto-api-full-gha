@@ -53,6 +53,7 @@ function App(props) {
     if (loggedIn) {
       api.getTaskCards()
         .then((res) => {
+          console.log(res)
           setCards(res)
         })
         .catch((error) => console.log(`Ошибка :( ${error})`));
@@ -179,6 +180,7 @@ function App(props) {
       .authorize(password, email)
       .then((res) => {
         if (res.token) {
+          console.log(res.token)
           localStorage.setItem("token", res.token)
           setLoggedIn(true)
           setUserEmail(email)

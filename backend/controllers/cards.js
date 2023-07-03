@@ -5,7 +5,7 @@ const RejectedErr = require('../error/rejected-err');
 
 const getCards = (req, res, next) => {
   Card.find({})
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send({ card }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequest('Некоректный запрос'));
