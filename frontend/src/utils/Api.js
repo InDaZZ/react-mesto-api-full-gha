@@ -114,7 +114,7 @@ export default class Api {
 
 
 export const api = new Api({
-  url: 'api.Mesto.Evgeny.D.nomoreparties.sbs',
+  url: 'https://api.Mesto.Evgeny.D.nomoreparties.sbs',
   headers: {
     authorization: 'a5cc8f48-b1d5-4939-89bd-28066ec899ee',
     'Content-Type': 'application/json'

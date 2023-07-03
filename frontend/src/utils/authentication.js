@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://api.Mesto.Evgeny.D.nomoreparties.sbs';
 
 function handleResponse(res) {
 

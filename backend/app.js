@@ -6,7 +6,7 @@ const { PORT = 3000 } = process.env;
 
 require('dotenv').config();
 
-console.log(process.env.JWT_SECRET);
+const cors = require('cors');
 
 const cookieParser = require('cookie-parser');
 
@@ -25,6 +25,17 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(requestLogger);
+
+app.use(cors({
+  origin: ['http://localhost:3000',
+    'http://localhost:3000',
+    'http://localhost:3002',
+    'https://Mesto.Evgeny.Dekhtyarev.nomoreparties.sbs',
+    'https://api.Mesto.Evgeny.D.nomoreparties.sbs',
+    'http://Mesto.Evgeny.Dekhtyarev.nomoreparties.sbs',
+    'http://api.Mesto.Evgeny.D.nomoreparties.sbs'],
+  credentials: true,
+}));
 
 app.use('/', router);
 
