@@ -43,11 +43,14 @@ function App(props) {
         .then((res) => {
           
           setCurrentUser(res) 
-          
+          console.log(res)
+          console.log(currentUser)
         })
         .catch((error) => console.log(`Ошибка :( ${error})`));
     }
   }, [loggedIn]);
+
+  console.log(currentUser)
 
   React.useEffect(() => {
     if (loggedIn) {

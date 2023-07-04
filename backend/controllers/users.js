@@ -21,7 +21,7 @@ const getUserMe = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Нет пользователя с таким id');
       }
-      return res.send({ data: user });
+      return res.send(user);
     })
     .catch((err) => {
       console.log(err);

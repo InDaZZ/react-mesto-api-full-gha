@@ -20,7 +20,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const isOwn = card.owner === userContext._id;
   console.log(card)
   console.log(card.owner)
-  console.log(userContext._id)
+  console.log(userContext)
   console.log(card.likes)
 
   const isLiked = card.likes.some(i => i === userContext._id);
