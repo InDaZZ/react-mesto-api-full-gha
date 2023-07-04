@@ -63,7 +63,7 @@ const pushLike = (req, res, next) => {
       if (card.owner._id.toString() !== req.user._id.toString()) {
         throw new RejectedErr('Вы не можете удалить карточку другого пользователя');
       }
-      return res.send({ data: card });
+      return res.send(card);
     })
     .catch((err) => {
       console.log(err.name);
@@ -86,7 +86,7 @@ const deletLike = (req, res, next) => {
       if (!card) {
         throw new NotFoundError('Некоректный запрос');
       }
-      return res.send({ data: card });
+      return res.send(card);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

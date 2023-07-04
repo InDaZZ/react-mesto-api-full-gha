@@ -21,8 +21,9 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   console.log(card)
   console.log(card.owner)
   console.log(userContext._id);
+  console.log(card.likes)
 
-  const isLiked = card.likes.some(i => i === userContext._id);
+  const isLiked = card.likes.some(i => i ===  userContext._id);
 
   const cardLikeButtonClassName = ( 
     `element__like ${isLiked && 'element__like_active'}` 
