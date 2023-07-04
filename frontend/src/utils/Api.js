@@ -127,7 +127,6 @@ export const api = new Api({
   url: 'https://api.Mesto.Evgeny.D.nomoreparties.sbs',
   headers: {
     'Content-Type': 'application/json',
-    "Authorization": `Bearer ${localStorage.getItem('jwt')}`
   }
 });
 
