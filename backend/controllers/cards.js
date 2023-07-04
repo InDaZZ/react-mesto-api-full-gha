@@ -60,9 +60,6 @@ const pushLike = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: owner } }, { new: true })
     .then((card) => {
       console.log(card._id);
-      if (card.owner._id.toString() !== req.user._id.toString()) {
-        throw new RejectedErr('Вы не можете удалить карточку другого пользователя');
-      }
       return res.send(card);
     })
     .catch((err) => {
