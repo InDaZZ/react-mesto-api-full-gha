@@ -43,8 +43,6 @@ function App(props) {
         .then((res) => {
           
           setCurrentUser(res) 
-          console.log(res)
-          console.log(currentUser)
         })
         .catch((error) => console.log(`Ошибка :( ${error})`));
     }
@@ -214,7 +212,7 @@ function App(props) {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            setUserEmail(res.data.email)
+            setUserEmail(res.email)
             navigate("/", { replace: true });
           }
         })
