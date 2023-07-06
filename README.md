@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.26.103
+IP <158.160.26.103>
 
 Frontend https://mesto.evgeny.dekhtyarev.nomoreparties.sbs
 
