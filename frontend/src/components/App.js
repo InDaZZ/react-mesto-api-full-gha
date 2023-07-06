@@ -48,8 +48,6 @@ function App(props) {
     }
   }, [loggedIn]);
 
-  console.log(currentUser)
-
   React.useEffect(() => {
     if (loggedIn) {
       api.getTaskCards()

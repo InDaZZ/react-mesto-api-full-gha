@@ -29,7 +29,7 @@ const getUserMe = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Пользователь не найден'));
+        return next(new BadRequest('Пользователь не найден'));
       }
       return next(err);
     });
@@ -48,7 +48,7 @@ const getUser = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Нет пользователя с таким id'));
+        return next(new BadRequest('Нет пользователя с таким id'));
       }
       return next(err);
     });
@@ -83,7 +83,7 @@ const creatUser = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
+        return next(new BadRequest('Переданы невалидные данные'));
       }
       return next(err);
     });
@@ -125,7 +125,7 @@ const updateUser = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
+        return next(new BadRequest('Переданы невалидные данные'));
       }
       return next(err);
     });
@@ -138,10 +138,10 @@ const updateUserAvatar = (req, res, next) => {
     .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new Emailexists('Некоректный запрос'));
+        return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
+        return next(new BadRequest('Переданы невалидные данные'));
       }
       return next(err);
     });

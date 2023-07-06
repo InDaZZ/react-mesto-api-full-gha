@@ -28,7 +28,6 @@ app.use(requestLogger);
 
 app.use(cors({
   origin: [
-    'http://localhost:3001',
     'https://mesto.evgeny.dekhtyarev.nomoreparties.sbs',
     'https://api.Mesto.Evgeny.D.nomoreparties.sbs',
     'http://mesto.evgeny.dekhtyarev.nomoreparties.sbs',

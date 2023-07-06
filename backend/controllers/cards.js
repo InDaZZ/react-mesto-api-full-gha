@@ -7,13 +7,7 @@ const getCards = (req, res, next) => {
   Card.find({})
     .then((card) => res.send(card))
     .catch((err) => {
-      if (err.name === 'ValidationError') {
-        return next(new BadRequest('Некоректный запрос'));
-      }
-      if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
-      }
-      return next(err);
+      next(err);
     });
 };
 const createCard = (req, res, next) => {
@@ -26,7 +20,7 @@ const createCard = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
+        return next(new BadRequest('Переданы невалидные данные'));
       }
       return next(err);
     });
@@ -50,7 +44,7 @@ const deletCard = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
+        return next(new BadRequest('Переданы невалидные данные'));
       }
       return next(err);
     });
@@ -59,6 +53,9 @@ const pushLike = (req, res, next) => {
   const owner = req.user;
   Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: owner } }, { new: true })
     .then((card) => {
+      if (!card) {
+        throw new NotFoundError('Некоректный запрос');
+      }
       console.log(card._id);
       return res.send(card);
     })
@@ -68,7 +65,7 @@ const pushLike = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
+        return next(new BadRequest('Переданы невалидные данные'));
       }
       if (err.name === 'TypeError') {
         return next(new NotFoundError('Переданы невалидные данные'));
@@ -90,7 +87,7 @@ const deletLike = (req, res, next) => {
         return next(new BadRequest('Некоректный запрос'));
       }
       if (err.name === 'CastError') {
-        return next(new NotFoundError('Переданы невалидные данные'));
+        return next(new BadRequest('Переданы невалидные данные'));
       }
       return next(err);
     });
