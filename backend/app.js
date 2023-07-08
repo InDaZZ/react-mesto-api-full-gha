@@ -20,8 +20,6 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 
 const app = express();
 
-app.get('/crash-test', () => { setTimeout(() => { throw new Error('Сервер сейчас упадёт'); }, 0); });
-
 app.use(express.json());
 
 app.use(cookieParser());
@@ -36,8 +34,6 @@ app.use(cors({
     'http://api.Mesto.Evgeny.D.nomoreparties.sbs'],
   credentials: true,
 }));
-
-app.get('/crash-test', () => { setTimeout(() => { throw new Error('Сервер сейчас упадёт'); }, 0); });
 
 app.use('/', router);
 
